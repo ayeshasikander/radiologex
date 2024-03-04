@@ -1,0 +1,86 @@
+install mui
+install mui icons
+install react-router-dom
+install sass
+install styled-components
+
+https://www.figma.com/file/o5jjMhW4LV9iWoFY8kl1WU/Radiologex-Website?node-id=0%3A1&t=wOkoyOugIGpTWlaH-1
+
+
+| Breakpoint | Screen Size Range (Width) | Typical Devices                                   |
+|------------|----------------------------|---------------------------------------------------|
+| xs         | <576px                     | Smartphones (portrait orientation)                |
+| sm         | 576px - 767px              | Small tablets, large smartphones (landscape)       |
+| md         | 768px - 991px              | Larger tablets, smaller laptops                    |
+| lg         | 992px - 1199px             | Larger laptops, desktops                           |
+| xl         | ≥1200px                    | Extra-large desktop monitors, high-resolution     |
+
+
+
+import React from 'react';
+import { Card, Typography } from '@mui/material';
+import { DermaProfileCard } from '../../services/profileCards';
+import { HiDotsVertical } from "react-icons/hi";
+import elipsa  from '../../assets/images/Ellipse 734.png';
+
+const DermatologistCard = () => {
+    return (
+        <DermaProfileCard>
+            <Card className='derma_profile_card'>
+                <div className="name">
+                    <div className="profile">
+                        <img className="profile_img" src={elipsa} alt="" />
+                        <div className="profile_name">
+                            <Typography className='profile_name_title'>Dr. Christine Michel</Typography>
+                            <Typography className='profile_title'>Dermatologist, London</Typography>
+                        </div>
+                    </div>
+                    <HiDotsVertical className='dot_icon'/>
+                </div>
+
+            </Card>
+        </DermaProfileCard>
+
+    )
+}
+
+export default DermatologistCard
+
+
+import styled from "styled-components";
+
+export const DermaProfileCard = styled.div`
+  padding: 1rem;
+  height: 300px;
+  box-shadow: none;
+  background-color: ${({ theme }) => theme.blackColor};
+  .derma_profile_card {
+    padding: 1rem;
+    width: 340px;
+    box-shadow: none;
+    border-radius: 2.5rem;
+    .name{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        .profile{
+            display:flex;
+            align-items: center;
+            gap: 1rem;
+            .profile_img{
+                width: 50px;
+                border-radius: 50%;
+                border: 3px solid ${({ theme }) => theme.purpleColor};
+            }
+            .profile_name_title{
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+        .dot_icon{
+            color: ${({ theme }) => theme.purpleColor};
+            font-size: 1.5rem;
+        }
+    }
+  }
+`;
